@@ -2,9 +2,7 @@ import {DataBaseSingleton} from "./connectionSingleton.js"
 
 
 async function getObservationByID(observationID){
-    let observation = null;
-    let connection = null;
-
+    let observation = {};
     try {
         
         const connection = await DataBaseSingleton.init();
@@ -24,7 +22,6 @@ async function getObservationByID(observationID){
 
 async function getObservations(page=1, amount=100, filter={}){
     let observations = {};
-    let connection = null;
 
     try {
         const connection = await DataBaseSingleton.init();

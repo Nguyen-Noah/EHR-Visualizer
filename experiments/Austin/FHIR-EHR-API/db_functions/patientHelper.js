@@ -1,7 +1,7 @@
 import {DataBaseSingleton} from "./connectionSingleton.js";
 
 async function getPatientByID(patient_id){
-    let patient;
+    let patient = {};
     try{
         
         
@@ -24,7 +24,7 @@ async function getPatientByID(patient_id){
 }
 
 async function getPatients(page=1, amount=100, filter={}){
-    let patients = null;
+    let patients = {};
 
     try{
         const connection = await DataBaseSingleton.init();
