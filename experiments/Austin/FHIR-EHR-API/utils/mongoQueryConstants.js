@@ -1,4 +1,4 @@
-export const MongoQueryCompareOps = {
+export const MongoCompareOps = {
     EQ: "$eq",
     GT: "$gt",
     GTE: "$gte",
@@ -9,7 +9,7 @@ export const MongoQueryCompareOps = {
     NIN: "$nin"
 };
 
-export const MongoQueryLogicOps = {
+export const MongoLogicOps = {
     AND: "$and",
     OR: "$or",
     NOT: "$not",
@@ -17,7 +17,13 @@ export const MongoQueryLogicOps = {
     
 };
 
-export const MongoQueryElementOps = {
+export const MongoElementOps = {
     EXISTS: "$exists",
     TYPE: "$type"
+};
+
+export const MongoArrayOps = {
+    ALL: "$all",
+    ELEM_MATCH: "$elemMatch",
+    SIZE: "$size"
 };
