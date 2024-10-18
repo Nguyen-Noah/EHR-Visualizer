@@ -1,25 +1,37 @@
-import React from 'react';
-import { useState } from 'react';
-import PieChart from './components/PieChart';
-import { Data } from './utils/Data';
-import { Chart, CategoryScale } from 'chart.js';
+import React, { useEffect, useState } from 'react';
+import { Meteor } from 'meteor/meteor';
 
-Chart.register(CategoryScale);
+const App = () => {
+  const [flaskData, setFlaskData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-export default function App() {
-  console.log(Data);
-  const [data, setData] = useState(Data);
-  console.log(data);
+  useEffect(() => {
+    Meteor.call('fetchFlaskData', (error, result) => {
+      if (error) {
+        console.error("Error calling Flask API:", error);
+        setLoading(false);
+      } else {
+        setFlaskData(result);
+        setLoading(false);
+      }
+    });
+  }, []);
+
   return (
-    <div className='App'>
-      <PieChart data={data} />
+    <div>
+      <h1>Welcome to the Meteor App</h1>
+
+      {loading ? <p>Loading Flask API data...</p> : null}
+      {flaskData ? (
+        <div>
+          <h2>Data from Flask API:</h2>
+          <p>{flaskData.message}</p>
+        </div>
+      ) : (
+        !loading && <p>No data received from Flask API</p>
+      )}
     </div>
-  )
+  );
 };
 
-/* export const App = () => (
-  <div>
-    <h1>Welcome to Meteor!</h1>
-    <PieChart data={data} />
-  </div>
-); */
+export default App;
