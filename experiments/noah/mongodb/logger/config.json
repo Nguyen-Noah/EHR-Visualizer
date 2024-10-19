@@ -1,0 +1,44 @@
+{
+    "version": 1,
+    "disable_existing_loggers": false,
+    "formatters": {
+        "simple": {
+            "format": "[%(asctime)s] %(name)s(%(levelname)s): %(message)s"
+        },
+        "json": {
+            "()": "logger.formats.JSONFormatter",
+            "fmt_keys": {
+                "level": "levelname",
+                "message": "message",
+                "timestamp": "timestamp",
+                "logger": "name",
+                "module": "module",
+                "function": "funcName",
+                "line": "lineno",
+                "thread_name": "threadName"
+            }
+        }
+    },
+    "handlers": {
+        "stderr": {
+            "class": "logging.StreamHandler",
+            "level": "WARNING",
+            "formatter": "json",
+            "stream": "ext://sys.stderr"
+        },
+        "file": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "level": "DEBUG",
+            "formatter": "json",
+            "filename": "/logs/MongoDB.log",
+            "maxBytes": 10000,
+            "backupCount": 3
+        }
+    },
+    "loggers": {
+        "root": {
+            "level": "DEBUG",
+            "handlers": ["stderr", "file"]
+        }
+    }
+}
