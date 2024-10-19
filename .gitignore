@@ -5,3 +5,7 @@ dist
 .cache
 .parcel-cache
 
+/noah/ehr_model/dataset/
+__pycache__/
+*.csv
+*.json
