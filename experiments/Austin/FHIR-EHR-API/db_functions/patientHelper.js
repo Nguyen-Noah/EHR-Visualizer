@@ -78,4 +78,4 @@ async function getPatients(page = 1, amount = 100, filter = {}) {
 
     return patients;
 }
-export { getPatientByID, getPatients, getPatientsByFullName}
+export { getPatientByID, getPatients, getPatientByFullName}

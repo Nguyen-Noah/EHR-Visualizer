@@ -4,7 +4,7 @@ import { patientsRouter } from "./routes/patients.js";
 import { observationsRouter } from "./routes/observations.js";
 import {DataBaseSingleton} from "./db_functions/connectionSingleton.js";
 
-dotenv.config({path: "./.env"})
+dotenv.config()
 
 const app = express();
 const PORT = process.env.SERVER_PORT || "8080";
