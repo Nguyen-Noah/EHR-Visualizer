@@ -1,0 +1,11 @@
+{
+  "name": "Dev-FHIR-Server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@bluehalo/node-fhir-server-core": "^2.2.4",
+    "dotenv": "^16.4.5",
+    "mongodb": "^6.10.0"
+  }
+}
