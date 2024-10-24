@@ -8,12 +8,10 @@ let config = {
     profiles: {
         patient: {
             service: "./services/patient/patient.service.js",
-            metadata: "./services/patient/patient.metadata.js",
             versions: [VERSIONS['4_0_0']]
         },
         observation: {
             service: "./services/observation/observation.service.js",
-            metadata: "./services/observation/observation.metadata.js",
             versions: [VERSIONS['4_0_0']]
         }
     }
